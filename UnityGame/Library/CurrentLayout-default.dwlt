@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 122
+  controlID: 54
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 78
+  controlID: 55
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -374,10 +374,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -512
-    m_HBaseRangeMax: 512
-    m_VBaseRangeMin: -384
-    m_VBaseRangeMax: 384
+    m_HBaseRangeMin: -409.6
+    m_HBaseRangeMax: 409.6
+    m_VBaseRangeMin: -307.2
+    m_VBaseRangeMax: 307.2
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -397,7 +397,7 @@ MonoBehaviour:
       y: 17
       width: 706
       height: 314
-    m_Scale: {x: 0.40885416, y: 0.40885416}
+    m_Scale: {x: 0.5110677, y: 0.5110677}
     m_Translation: {x: 353, y: 157}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -405,15 +405,15 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -863.38855
-      y: -384
-      width: 1726.7771
-      height: 768
+      x: -690.7109
+      y: -307.2
+      width: 1381.4218
+      height: 614.4
     m_MinimalGUI: 1
-  m_defaultScale: 0.40885416
+  m_defaultScale: 0.5110677
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 706, y: 331}
+  m_LastWindowPixelSize: {x: 882.5, y: 413.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -447,9 +447,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3c2f0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 94faffff
+      m_SelectedIDs: a8f1ffff
+      m_LastClickedID: -3672
+      m_ExpandedIDs: 4cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -509,9 +509,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.5806925, y: 0.65151113, z: 170.91992}
+    m_Target: {x: -3.4533558, y: -1.6547358, z: 118.52924}
     speed: 2
-    m_Value: {x: -3.5806925, y: 0.65151113, z: 170.91992}
+    m_Value: {x: -3.4533558, y: -1.6547358, z: 118.52924}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -544,9 +544,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.869651
+    m_Target: 4.630112
     speed: 2
-    m_Value: 6.869651
+    m_Value: 4.630112
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -637,20 +637,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Image
+    - Assets/Prefab
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Image
+  - Assets/Prefab
   m_LastFoldersGridSize: 96
   m_LastProjectPath: "C:\\Users\\arun3\\OneDrive\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\HaraMiyuBeauty\\UnityGame"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3c2f0000
-    m_LastClickedID: 12092
-    m_ExpandedIDs: 000000008c2d0000dc2e000000ca9a3b
+    m_SelectedIDs: 062e0000
+    m_LastClickedID: 11782
+    m_ExpandedIDs: 00000000582d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -678,7 +678,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c2d0000
+    m_ExpandedIDs: 00000000582d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -706,7 +706,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000ec360000743e00007c2f0000b69effffe02f000000000000aa300000
+    m_ExpandedInstanceIDs: c6230000ec360000743e00007c2f0000b69effffe02f000000000000aa300000e42e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
