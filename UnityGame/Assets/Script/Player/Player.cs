@@ -10,12 +10,6 @@ public class Player : MonoBehaviour {
     private float speed; //スピード
 
     [SerializeField]
-    private float jumpPower; //ジャンプ力
-
-    [SerializeField]
-    private LayerMask groundlayer;　//着地判定
-
-    [SerializeField]
     private Camera charaCamera; //キャラ追従カメラ
 
     [SerializeField]
@@ -47,8 +41,6 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-       
-
     }
 
     // Update is called once per frame
@@ -56,9 +48,6 @@ public class Player : MonoBehaviour {
 
         //キャラの移動
         Move();
-
-        //キャラのジャンプ
-        Jump();
 
         //カメラの移動
         charaCamera.transform.position = new Vector3(transform.position.x, 0.0f, -10.0f);
@@ -68,13 +57,13 @@ public class Player : MonoBehaviour {
         if (shootTime > 1.0f)
         {
             //遠距離攻撃
-            Shoot();
+            //Shoot();
         }
 
-        if (transform.position.y <= -8.0f)
-        {
-            gameObject.SetActive(false);
-        }
+        //if (transform.position.y <= -8.0f)
+        //{
+        //    gameObject.SetActive(false);
+        //}
 
         attackTime += Time.deltaTime;
         //格闘のリロード時間
@@ -85,16 +74,16 @@ public class Player : MonoBehaviour {
         }
 
         //UIにhpとかを伝える。
-        slider.maxValue = MaxHp;
-        slider.value = hp;
+        //slider.maxValue = MaxHp;
+        //slider.value = hp;
 
-        //死亡
-        if (hp <= 0)
-        {
-            Instantiate(dethPrefab, transform.position, Quaternion.identity);
-            // Destroy(gameObject);
-            gameObject.SetActive(false);
-        }
+        ////死亡
+        //if (hp <= 0)
+        //{
+        //    Instantiate(dethPrefab, transform.position, Quaternion.identity);
+        //    // Destroy(gameObject);
+        //    gameObject.SetActive(false);
+        //}
     }
 
     //キャラの左右移動
@@ -108,34 +97,16 @@ public class Player : MonoBehaviour {
         {
             //localScale.xを-1にすると画像が反転する
             Vector2 temp = transform.localScale;
-            temp.x = -2.0f;
+            temp.x = -1.0f;
             transform.localScale = temp;
         }
         else if (translation > 0)
         {
             //localScale.xを1にすると画像が反転する
             Vector2 temp = transform.localScale;
-            temp.x = 2.0f;
+            temp.x = 1.0f;
             transform.localScale = temp;
         }
-    }
-
-    //ジャンプ
-    void Jump()
-    {
-
-        if (Input.GetKeyDown("space") && CheckGrounded())
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpPower);
-        }
-    }
-
-    //地面に面しているか判断する関数
-    bool CheckGrounded()
-    {
-        return Physics2D.Linecast(transform.position,
-            transform.position - transform.up * 1.2f,
-            groundlayer);
     }
 
     //弾を発射
