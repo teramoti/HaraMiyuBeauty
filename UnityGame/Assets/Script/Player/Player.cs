@@ -37,17 +37,28 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private string deathSE;
 
+    Vector3 MOVEX = new Vector3(0.64f, 0, 0); // x軸方向に１マス移動するときの距離
+    Vector3 MOVEY = new Vector3(0, 0.64f, 0); // y軸方向に１マス移動するときの距離
+
+    float step = 2f;     // 移動速度
+    Vector3 target;      // 入力受付時、移動後の位置を算出して保存 
+    Vector3 prevPos;     // 何らかの理由で移動できなかった場合、元の位置に戻すため移動前の位置を保存
 
     // Use this for initialization
     void Start() {
-
+        target = transform.position;
     }
 
     // Update is called once per frame
     void Update() {
 
         //キャラの移動
-        Move();
+        // ① 移動中かどうかの判定。移動中でなければ入力を受付
+        if (transform.position == target)
+        {
+            SetTargetPosition();
+        }
+        Moves();
 
         //カメラの移動
         charaCamera.transform.position = new Vector3(transform.position.x, 0.0f, -10.0f);
@@ -84,29 +95,46 @@ public class Player : MonoBehaviour {
         //    // Destroy(gameObject);
         //    gameObject.SetActive(false);
         //}
-    }
+    }  
 
-    //キャラの左右移動
-    void Move()
+    void SetTargetPosition()
     {
-        float translation = Input.GetAxis("Horizontal") * speed;
-        translation *= Time.deltaTime;
-        transform.Translate(translation, 0, 0);
 
-        if (translation < 0)
+        prevPos =target;
+
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            //localScale.xを-1にすると画像が反転する
-            Vector2 temp = transform.localScale;
-            temp.x = -1.0f;
-            transform.localScale = temp;
-        }
-        else if (translation > 0)
-        {
+            target = transform.position + MOVEX;
             //localScale.xを1にすると画像が反転する
             Vector2 temp = transform.localScale;
             temp.x = 1.0f;
             transform.localScale = temp;
+            return;
         }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            target = transform.position - MOVEX;
+            //localScale.xを-1にすると画像が反転する
+            Vector2 temp = transform.localScale;
+            temp.x = -1.0f;
+            transform.localScale = temp;
+            return;
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            target = transform.position + MOVEY;
+            return;
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            target = transform.position - MOVEY;
+            return;
+        }
+    }
+
+    void Moves()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target, step * Time.deltaTime);
     }
 
     //弾を発射
