@@ -120,6 +120,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &210255491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210255493}
+  - component: {fileID: 210255492}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &210255492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210255491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f681641755ec14cab5ed26a77d8d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mapchip: {fileID: 4900000, guid: 2f820a969d11f8f4ebd52c41f9c7eb0b, type: 3}
+  mapdatePrefab:
+  - {fileID: 0}
+  - {fileID: 4539756815788252396, guid: fbb77e730893d5248b7c57f21b42f553, type: 3}
+  - {fileID: 871411022127163036, guid: 7305f58deb36cfd44a4c5fa12a524afa, type: 3}
+  - {fileID: 6852426852634855835, guid: 2e23787e8c83e014297d7603340bf009, type: 3}
+  - {fileID: 3201638985952507677, guid: b43a25c9cbb7a694898525e5646f6829, type: 3}
+  - {fileID: 1634125801554938538, guid: 61b17337a5e22484a969c3eea0bc05fe, type: 3}
+  scaling: 3
+  scal: 0.3
+--- !u!4 &210255493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210255491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.2, y: 4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1324159440
 GameObject:
   m_ObjectHideFlags: 0

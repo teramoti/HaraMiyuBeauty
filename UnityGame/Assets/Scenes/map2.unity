@@ -169,6 +169,7 @@ MonoBehaviour:
   - {fileID: 4539756815788252396, guid: fbb77e730893d5248b7c57f21b42f553, type: 3}
   - {fileID: 871411022127163036, guid: 7305f58deb36cfd44a4c5fa12a524afa, type: 3}
   - {fileID: 886204415120758637, guid: a0266f7649aca594eb7e6f73676116de, type: 3}
+  - {fileID: 826017368157755643, guid: 4a7354ff2e0e9b647adca1231b106672, type: 3}
   scaling: 3
   scal: 0.3
 --- !u!1 &1905955877
