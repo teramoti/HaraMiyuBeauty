@@ -21,8 +21,6 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private GameObject dethPrefab; //死亡時エフェクト
 
-    private float shootTime = 0.0f; //ショットタイム
-
     private float attackTime = 0.0f; //アタックタイム
 
     public int hp = 20; //hp
@@ -52,6 +50,9 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        //UIにhpとかを伝える。
+        slider.maxValue = MaxHp;
+        slider.value = hp;
         //キャラの移動
         // ① 移動中かどうかの判定。移動中でなければ入力を受付
         if (transform.position == target)
@@ -63,19 +64,6 @@ public class Player : MonoBehaviour {
         //カメラの移動
         charaCamera.transform.position = new Vector3(transform.position.x, 0.0f, -10.0f);
 
-        //弾のリロード時間
-        shootTime += Time.deltaTime;
-        if (shootTime > 1.0f)
-        {
-            //遠距離攻撃
-            //Shoot();
-        }
-
-        //if (transform.position.y <= -8.0f)
-        //{
-        //    gameObject.SetActive(false);
-        //}
-
         attackTime += Time.deltaTime;
         //格闘のリロード時間
         if (attackTime > 0.8f)
@@ -84,9 +72,7 @@ public class Player : MonoBehaviour {
             Attack();
         }
 
-        //UIにhpとかを伝える。
-        //slider.maxValue = MaxHp;
-        //slider.value = hp;
+
 
         ////死亡
         //if (hp <= 0)
@@ -135,16 +121,6 @@ public class Player : MonoBehaviour {
     void Moves()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, step * Time.deltaTime);
-    }
-
-    //弾を発射
-    void Shoot()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            shootTime = 0.0f;
-        }
     }
 
     //格闘攻撃
