@@ -135,5 +135,14 @@ public class Player : MonoBehaviour {
         }
     }
 
+    int GetHP()
+    {
+        return hp;
+    }
+    void SetHP(int sHP)
+    {
+        sHP = hp;
+    }
+
 
 }
