@@ -141,7 +141,7 @@ public class Player : MonoBehaviour {
     }
     void SetHP(int sHP)
     {
-        sHP = hp;
+        hp = sHP;
     }
 
 
