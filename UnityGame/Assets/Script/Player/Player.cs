@@ -12,8 +12,8 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private Camera charaCamera; //キャラ追従カメラ
 
-    [SerializeField]
-    private GameObject bulletPrefab; //弾のプレファブ
+    //[SerializeField]
+    //private GameObject bulletPrefab; //弾のプレファブ
 
     [SerializeField]
     private GameObject attackPrefab; //格闘攻撃のプレファブ
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour {
 
         prevPos =target;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.D) )
         {
             target = transform.position + MOVEX;
             //localScale.xを1にすると画像が反転する
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour {
             transform.localScale = temp;
             return;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) )
         {
             target = transform.position - MOVEX;
             //localScale.xを-1にすると画像が反転する
@@ -106,12 +106,12 @@ public class Player : MonoBehaviour {
             transform.localScale = temp;
             return;
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.W) )
         {
             target = transform.position + MOVEY;
             return;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S) )
         {
             target = transform.position - MOVEY;
             return;
@@ -132,17 +132,25 @@ public class Player : MonoBehaviour {
             pos.x += transform.localScale.x * 1.25f;
             Instantiate(attackPrefab, pos, Quaternion.identity);
             attackTime = 0.0f;
+            
         }
     }
 
-    int GetHP()
+    public int GetHP()
     {
         return hp;
     }
-    void SetHP(int sHP)
+    public void SetHP(int sHP)
     {
         hp = sHP;
     }
-
+    void OnCollisionEnter2D (Collision2D collision) 
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //collision.gameObject.SendMessage("ApplyDamage", 10);
+            print("aaa");
+        }
+    }
 
 }
