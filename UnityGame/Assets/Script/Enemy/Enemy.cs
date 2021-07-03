@@ -6,10 +6,10 @@ public class Enemy : MonoBehaviour
 {
 
     [SerializeField]
-    private float speed;
+    private float speed = 5.0f;
 
     [SerializeField]
-    private float see = 5.0f;
+    private float see = 30.0f;
 
     private bool moveflag = false;
    
@@ -29,6 +29,10 @@ public class Enemy : MonoBehaviour
     
     [SerializeField]
     private int hp;
+
+   [SerializeField]
+    private int attack = 2;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +62,19 @@ public class Enemy : MonoBehaviour
             float dis_x = Player.transform.position.x - transform.position.x;
             float dis_y = Player.transform.position.y - transform.position.y;
 
+            if(dis_x > dis_y)
+            {
+                dis_y = 0.0f;
+            }
+            else if(dis_x <= dis_y)
+            {
+                dis_x = 0.0f;
+            }
+            else
+            {
+
+            }
+
             Vector2 direction = new Vector2(dis_x, dis_y);
 
             transform.Translate(direction * speed * Time.deltaTime);
@@ -86,19 +103,18 @@ public class Enemy : MonoBehaviour
         hp = shp;
     }
 
-    /*void OnCollisionEnter2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
 
         if (coll.gameObject.tag == "Player")
         {
             //プレイヤーにダメージを与える
-            Player.GetComponent<Player>().hp -= 1;
+            Player.GetComponent<Player>().SetHp(Player.GetComponent<Player>().GetHp()-=attack);
 
             //ヒットパーティクルの生成
-            Instantiate(hitparticlePrefab, transform.position, Quaternion.identity);
+            //Instantiate(hitparticlePrefab, transform.position, Quaternion.identity);
 
-            AudioManager.Instance.PlaySE(HitSE);
-
+            //AudioManager.Instance.PlaySE(HitSE);
 
             //ノックバック
             Vector2 direction = Player.transform.position - transform.position;
@@ -107,7 +123,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnParticleCollision(GameObject obj)
+    /*void OnParticleCollision(GameObject obj)
     {
         if (obj.tag == "Bullet")
         {

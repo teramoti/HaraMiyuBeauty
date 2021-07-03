@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3513041770062857689}
   - component: {fileID: 3513041770062857688}
   - component: {fileID: 3513041770062857691}
+  - component: {fileID: 7067097217163111430}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
@@ -122,3 +123,20 @@ MonoBehaviour:
   deathparticlePrefab: {fileID: 0}
   HitSE: 
   DethSE: 
+  hp: 0
+--- !u!58 &7067097217163111430
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513041770062857687}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32
