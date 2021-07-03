@@ -26,6 +26,9 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private string DethSE;
+    
+    [SerializeField]
+    private int hp;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +74,16 @@ public class Enemy : MonoBehaviour
         }
 
         return false;
+    }
+
+    public int GetHp()
+    {
+        return hp;   
+    }
+
+    public void SetHp(int shp)
+    {
+        hp = shp;
     }
 
     /*void OnCollisionEnter2D(Collision2D coll)
