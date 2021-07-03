@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             //プレイヤーにダメージを与える
-            Player.GetComponent<Player>().SetHp(Player.GetComponent<Player>().GetHp()-=attack);
+            Player.GetComponent<Player>().SetHP(Player.GetComponent<Player>().GetHP() - attack);
 
             //ヒットパーティクルの生成
             //Instantiate(hitparticlePrefab, transform.position, Quaternion.identity);
