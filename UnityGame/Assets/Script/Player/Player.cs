@@ -50,6 +50,10 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        if (DeathPlayer())
+        {
+            return;
+        }
         //UIにhpとかを伝える。
         slider.maxValue = MaxHp;
         slider.value = hp;
@@ -83,9 +87,7 @@ public class Player : MonoBehaviour {
         //}
     }  
 
-    void SetTargetPosition()
-    {
-
+    void SetTargetPosition() {
         prevPos =target;
 
         if (Input.GetKey(KeyCode.RightArrow)|| Input.GetKey(KeyCode.D) )
@@ -118,14 +120,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void Moves()
-    {
+    void Moves() {
         transform.position = Vector3.MoveTowards(transform.position, target, step * Time.deltaTime);
     }
 
     //格闘攻撃
-    void Attack()
-    {
+    void Attack() {
         if (Input.GetKeyDown(KeyCode.X))
         {
             var pos = transform.position;
@@ -136,21 +136,26 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public int GetHP()
-    {
+    public int GetHP() {
         return hp;
     }
-    public void SetHP(int sHP)
-    {
+    public void SetHP(int sHP) {
         hp = sHP;
     }
-    void OnCollisionEnter2D (Collision2D collision) 
-    {
+    void OnCollisionEnter2D (Collision2D collision) {
         if (collision.gameObject.tag == "Enemy")
         {
             //collision.gameObject.SendMessage("ApplyDamage", 10);
-            print("aaa");
+            print("Playerがヒットしている");
         }
     }
 
+    public bool DeathPlayer() {
+        if( hp <= 0)
+        {
+            gameObject.SetActive(false);
+            return true;
+        }
+        return false;
+    }
 }

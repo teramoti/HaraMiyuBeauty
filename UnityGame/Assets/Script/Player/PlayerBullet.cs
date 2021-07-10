@@ -7,8 +7,12 @@ public class PlayerBullet : MonoBehaviour {
     [SerializeField]
     private float speed;
 
+    [SerializeField]
+    private int attack;
+
     private float direction;
 
+    private GameObject Enemy;
     // Use this for initialization
     void Start ()
     {
@@ -17,7 +21,8 @@ public class PlayerBullet : MonoBehaviour {
         var player = GameObject.FindWithTag("Player");
 
         direction = player.transform.localScale.x;
-        
+        //プレイヤーの情報を取得
+        Enemy = GameObject.FindWithTag("Enemy");
         //5秒後に消滅
         Destroy(gameObject, 5.0f);
     }
@@ -38,4 +43,14 @@ public class PlayerBullet : MonoBehaviour {
         }
 
     }
+        void OnCollisionEnter2D (Collision2D collision) {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //プレイヤーにダメージを与える
+            Enemy.GetComponent<Enemy>().SetHp(Enemy.GetComponent<Enemy>().GetHp() - attack);
+            //5秒後に消滅
+            Destroy(gameObject);
+            print("BlletAttack : Hit");
+        }
+    }    
 }
