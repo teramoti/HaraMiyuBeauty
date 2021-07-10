@@ -7,13 +7,11 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private float speed = 5.0f;
-
-    [SerializeField]
-    private float see = 30.0f;
-
-    private bool moveflag = false;
    
     private GameObject Player;
+
+    [SerializeField]
+    private GameObject senser;
 
     [SerializeField]
     private GameObject hitparticlePrefab;
@@ -55,42 +53,24 @@ public class Enemy : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().angularVelocity = 0;
 
-        moveflag = Senser();
-
-        if (moveflag)
+        if (senser.GetComponent<Senser>().GetSenser())
         {
             float dis_x = Player.transform.position.x - transform.position.x;
             float dis_y = Player.transform.position.y - transform.position.y;
 
-            if(dis_x > dis_y)
+            if(dis_x <= dis_y)
             {
                 dis_y = 0.0f;
             }
-            else if(dis_x <= dis_y)
-            {
-                dis_x = 0.0f;
-            }
             else
             {
-
+                dis_x = 0.0f;
             }
 
             Vector2 direction = new Vector2(dis_x, dis_y);
 
             transform.Translate(direction * speed * Time.deltaTime);
         }
-    }
-
-    bool Senser()
-    {
-        float dis = Player.transform.position.x - transform.position.x;
-
-        if (Mathf.Abs(dis) <= see)
-        {
-            return true;
-        }
-
-        return false;
     }
 
     public int GetHp()
