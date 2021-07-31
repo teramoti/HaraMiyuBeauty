@@ -19,20 +19,22 @@ public class Senser : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collision2D coll)
     {
 
         if (coll.gameObject.tag == "Player")
         {
             SenserFlag =true;
+            print("あたり");
         }
     }
     
-    void OnCollisionExit2D(Collision2D coll)
+    void OnTriggerExit2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Player")
         {
             SenserFlag = false;
+            print("はずれ");
         }
     }
 
